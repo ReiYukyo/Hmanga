@@ -1,0 +1,19 @@
+:root {
+    --bg-primary: #b73113;
+    --bg-secondary: #8b2f2f;
+    --text-primary: #ffffff;
+    --text-secondary: #ffcccc;
+    --accent-color: #ff4081;
+    --border-color: #6a1f1f;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--border-color);
+}

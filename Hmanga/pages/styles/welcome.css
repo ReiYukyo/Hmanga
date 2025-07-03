@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #b73113;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    perspective: 1000px;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    animation: slideUp 0.8s ease-out both;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.age-gate {
+    background: #ff4081;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.welcome-title {
+    font-size: 2.8rem;
+    margin: 0 0 1rem;
+    background: linear-gradient(to right, #ffffff, #ffcccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+}
+
+.app-icon-container {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.app-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.welcome-description {
+    font-size: 1.3rem;
+    max-width: 400px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 1rem 0 2rem;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.start-button {
+    background-color: #b74413;
+    color: white;
+    border: 2px solid #8b2f2f;
+    border-radius: 50px;
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(139, 47, 47, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.start-button:hover {
+    background-color: #a63b10;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(139, 47, 47, 0.6);
+}
+
+.start-button:active {
+    transform: translateY(1px);
+}
+
+.start-button.clicked {
+    animation: buttonClick 0.5s ease-out forwards;
+}
+
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { 
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.start-button:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .welcome-title {
+        font-size: 2.2rem;
+    }
+    
+    .welcome-description {
+        font-size: 1.1rem;
+    }
+    
+    .app-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .start-button {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+}

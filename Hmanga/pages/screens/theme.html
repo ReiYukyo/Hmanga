@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Theme</title>
+    <link rel="stylesheet" href="../styles/theme.css">
+</head>
+
+<body>
+    <div class="theme-container">
+        <h1>Choose Your Theme</h1>
+        <p class="subtitle">Select your preferred app appearance</p>
+
+        <div class="theme-options">
+            <div class="theme-option" data-theme="dark">
+                <input type="radio" id="dark" name="theme" value="dark" checked>
+                <label for="dark">Dark</label>
+            </div>
+            <div class="theme-option" data-theme="light">
+                <input type="radio" id="light" name="theme" value="light">
+                <label for="light">Light</label>
+            </div>
+            <div class="theme-option" data-theme="red">
+                <input type="radio" id="red" name="theme" value="red">
+                <label for="red">Red</label>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button onclick="location.href='sources.html'">← Back</button>
+            <button onclick="location.href='onboarding.html'">Next →</button>
+        </div>
+    </div>
+    <script src="../pages/js/theme.js"></script>
+</body>
+
+</html>

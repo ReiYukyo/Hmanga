@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Hmanga</title>
+    <link rel="stylesheet" href="../styles/welcome.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-content">
+            <div class="age-gate">18+</div>
+            <h1 class="welcome-title">Welcome to Hmanga!</h1>
+            <div class="app-icon-container">
+                <img src="../../assets/icon.png" alt="Hmanga Icon" class="app-icon">
+            </div>
+            <p class="welcome-description">Hmanga is a Doujinshi & H-Manga archiving app.</p>
+            <button class="start-button">
+                <span>Get Started</span>
+                <i class="arrow-icon">→</i>
+            </button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.start-button').addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => {
+                location.href = 'library.html';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

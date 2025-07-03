@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Sources</title>
+    <link rel="stylesheet" href="../styles/sources.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sources-container">
+        <div class="sources-card">
+            <h1 class="sources-title">Select Sources</h1>
+            <p class="sources-subtitle">Choose which websites to download from:</p>
+            
+            <div class="sources-grid">
+                <div class="source-item">
+                    <input type="checkbox" id="8muses" checked>
+                    <label for="8muses">
+                        <div class="source-icon">
+                            <i class="fab fa-chrome"></i>
+                        </div>
+                        <span class="source-name">8Muses</span>
+                        <div class="checkmark"></div>
+                    </label>
+                </div>
+                
+                <div class="source-item">
+                    <input type="checkbox" id="Hitomi" checked>
+                    <label for="Hitomi">
+                        <div class="source-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <span class="source-name">Hitomi</span>
+                        <div class="checkmark"></div>
+                    </label>
+                </div>
+                
+                <div class="source-item">
+                    <input type="checkbox" id="HentaiFox" checked>
+                    <label for="HentaiFox">
+                        <div class="source-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <span class="source-name">HentaiFox</span>
+                        <div class="checkmark"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-button back-button" onclick="location.href='library.html'">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </button>
+            <button class="nav-button next-button" onclick="location.href='theme.html'">
+                <span>Next</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        // Add click animation to source items
+        document.querySelectorAll('.source-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.add('clicked');
+                setTimeout(() => this.classList.remove('clicked'), 200);
+            });
+        });
+        
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '1';
+            
+            // Staggered animation for source items
+            const items = document.querySelectorAll('.source-item');
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

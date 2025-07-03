@@ -1,0 +1,19 @@
+{
+  "name": "hmanga",
+  "version": "1.0.0",
+  "description": "A Hmanga app",
+  "author": "Your Name or Organization",
+
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "37.2.0",
+    "electron-builder": "26.0.0"
+  },
+  "build": {
+    "icon": "assets/icon.ico"
+  }
+}

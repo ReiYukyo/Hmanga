@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hmanga</title>
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                    <span class="sr-only">Toggle Menu</span>
+                </button>
+                <div class="app-logo">
+                    <img src="../../assets/icon.png" alt="Hmanga Logo" class="logo-icon">
+                    <h2>Hmanga</h2>
+                </div>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3><i class="fas fa-globe"></i> <span>Sources</span></h3>
+                    <ul>
+                        <li class="source-item">
+                            <i class="fab fa-chrome"></i>
+                            <span>8Muses</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="source-item">
+                            <i class="fas fa-book-open"></i>
+                            <span>Hentai2Read</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="source-item">
+                            <i class="fas fa-book"></i>
+                            <span>AllPornComic</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-section">
+                    <h3><i class="fas fa-bookmark"></i> <span>Library</span></h3>
+                    <ul>
+                        <li class="library-item">
+                            <i class="fas fa-download"></i>
+                            <span>Downloads</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="library-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorites</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="library-item">
+                            <i class="fas fa-folder"></i>
+                            <span>Collections</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="menu-section">
+                    <h3><i class="fas fa-cog"></i> <span>System</span></h3>
+                    <ul>
+                        <li class="system-item" onclick="location.href='settings.html'">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Settings</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="system-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Download Queue</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                        <li class="system-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                            <div class="active-indicator"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-wrapper">
+                <div class="welcome-card">
+                    <h1 class="welcome-title">Welcome to Hmanga</h1>
+                    <p class="welcome-subtitle">Select a source from the sidebar to begin your reading experience</p>
+                    <div class="welcome-illustration">
+                        <div class="placeholder-illustration">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/home.js"></script>
+</body>
+</html>

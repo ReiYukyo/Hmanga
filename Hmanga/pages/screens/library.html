@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Setup</title>
+    <link rel="stylesheet" href="../styles/library.css">
+</head>
+<body>
+    <div class="library-container">
+        <div class="setup-card">
+            <h1 class="setup-title">Library Setup</h1>
+            <p class="setup-instruction">Select where to store downloaded files:</p>
+            
+            <div class="folder-selector">
+                <button id="select-folder" class="folder-button">
+                    <i class="folder-icon">📁</i>
+                    <span>Choose Folder</span>
+                </button>
+                <div id="selected-folder" class="folder-display">
+                    <span class="placeholder">No folder selected</span>
+                    <span class="folder-path"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-button back-button" onclick="location.href='welcome.html'">
+                <i class="arrow-icon">←</i>
+                <span>Back</span>
+            </button>
+            <button class="nav-button skip-button" onclick="location.href='sources.html'">
+                <span>Skip</span>
+            </button>
+            <button class="nav-button next-button" onclick="location.href='sources.html'">
+                <span>Next</span>
+                <i class="arrow-icon">→</i>
+            </button>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script>
+        // Animation for folder selection
+        document.getElementById('select-folder').addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => this.classList.remove('clicked'), 300);
+        });
+        
+        // Page load animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>

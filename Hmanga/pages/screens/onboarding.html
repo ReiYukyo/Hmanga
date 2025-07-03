@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Set!</title>
+    <link rel="stylesheet" href="../styles/onboarding.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="onboarding-container">
+        <div class="completion-card">
+            <div class="confetti-container"></div>
+            <h1 class="completion-title">All Set Up!</h1>
+            <p class="completion-message">We are set! Enjoy the app.</p>
+            
+            <div class="icon-celebration">
+                <div class="icon-wrapper">
+                    <img src="../../assets/icon.png" alt="App Icon" class="app-icon">
+                    <div class="circle-animation"></div>
+                </div>
+                <div class="sparkle sparkle-1"><i class="fas fa-star"></i></div>
+                <div class="sparkle sparkle-2"><i class="fas fa-star"></i></div>
+                <div class="sparkle sparkle-3"><i class="fas fa-star"></i></div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slider-thumb">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <span class="slider-text">Start Using Hmanga</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const slider = document.querySelector('.slider-track');
+        const thumb = document.querySelector('.slider-thumb');
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        const sliderWidth = slider.offsetWidth;
+        const thumbWidth = thumb.offsetWidth;
+        const maxSlide = sliderWidth - thumbWidth;
+
+        thumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - thumb.getBoundingClientRect().left;
+            thumb.style.transition = 'none';
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            currentX = e.clientX - slider.getBoundingClientRect().left - startX;
+            
+            // Constrain within slider bounds
+            currentX = Math.max(0, Math.min(currentX, maxSlide));
+            
+            thumb.style.left = currentX + 'px';
+            
+            // If dragged to the end
+            if (currentX >= maxSlide - 5) {
+                completeSlide();
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            // Return to start if not completed
+            if (currentX < maxSlide - 5) {
+                thumb.style.transition = 'left 0.3s ease-out';
+                thumb.style.left = '0';
+            }
+        });
+
+        // Touch events for mobile
+        thumb.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX - thumb.getBoundingClientRect().left;
+            thumb.style.transition = 'none';
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            currentX = e.touches[0].clientX - slider.getBoundingClientRect().left - startX;
+            
+            // Constrain within slider bounds
+            currentX = Math.max(0, Math.min(currentX, maxSlide));
+            
+            thumb.style.left = currentX + 'px';
+            
+            // If dragged to the end
+            if (currentX >= maxSlide - 5) {
+                completeSlide();
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            // Return to start if not completed
+            if (currentX < maxSlide - 5) {
+                thumb.style.transition = 'left 0.3s ease-out';
+                thumb.style.left = '0';
+            }
+        });
+
+        function completeSlide() {
+            thumb.style.transition = 'left 0.3s ease-out';
+            thumb.style.left = maxSlide + 'px';
+            
+            // Add completion class to trigger animations
+            slider.classList.add('completed');
+            
+            // Transition to next screen
+            setTimeout(() => {
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    location.href='../screens/home.html';
+                }, 500);
+            }, 1000);
+        }
+
+        // Create confetti on load
+        document.addEventListener('DOMContentLoaded', function() {
+            createConfetti();
+            document.body.style.opacity = '1';
+        });
+
+        function createConfetti() {
+            const container = document.querySelector('.confetti-container');
+            const colors = ['#ff4081', '#8b2f2f', '#ffffff', '#ffcccc'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                container.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
